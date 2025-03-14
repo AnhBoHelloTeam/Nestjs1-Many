@@ -29,3 +29,5 @@ import { CategoryModule } from './category/category.module';
   providers: [AppService],
 })
 export class AppModule {}
+
+// dữ liệu tạo bảng trong database_seed_notes.txt

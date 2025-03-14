@@ -1,0 +1,42 @@
+CREATE DATABASE demost22c;
+USE demost22c;
+
+////////////////////////////////////
+// tạo bảng 
+CREATE TABLE category (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL
+);
+
+
+CREATE TABLE product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL,
+    status BOOLEAN NOT NULL,
+    categoryId INT,
+    FOREIGN KEY (categoryId) REFERENCES category(id) ON DELETE SET NULL
+);
+
+////////////////////////////////////
+
+// chèn dữ liệu vào bảng category
+INSERT INTO category (name, description) VALUES
+('Điện thoại', 'Các dòng điện thoại thông minh và phổ thông'),
+('Laptop', 'Các loại laptop phục vụ công việc và giải trí'),
+('Tablet', 'Máy tính bảng đa chức năng'),
+('Phụ kiện điện tử', 'Các phụ kiện hỗ trợ như tai nghe, sạc, dây cáp');
+
+// dữ liệu vào bảng product
+INSERT INTO product (name, description, image, price, quantity, status, categoryId) VALUES
+('iPhone 14 Pro Max', 'Điện thoại cao cấp của Apple với chip A16 Bionic', 'iphone14.jpg', 29990000, 10, true, 1),
+('Samsung Galaxy S23 Ultra', 'Điện thoại flagship của Samsung với bút S-Pen', 's23ultra.jpg', 26990000, 8, true, 1),
+('MacBook Pro M2', 'Laptop mạnh mẽ dành cho dân thiết kế', 'macbookpro.jpg', 42990000, 5, true, 2),
+('Dell XPS 15', 'Laptop cao cấp của Dell với màn hình OLED', 'dellxps15.jpg', 39990000, 4, true, 2),
+('iPad Air 5', 'Máy tính bảng với chip M1 và màn hình Retina', 'ipadair5.jpg', 16990000, 12, true, 3),
+('AirPods Pro 2', 'Tai nghe không dây chống ồn của Apple', 'airpodspro2.jpg', 5490000, 15, true, 4),
+('Sạc nhanh 65W Anker', 'Củ sạc nhanh hỗ trợ nhiều thiết bị', 'anker65w.jpg', 990000, 20, true, 4);

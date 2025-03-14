@@ -16,6 +16,7 @@ export class CategoryController {
     };
   }
 
+
   // Lấy danh mục theo id
   @Get('/:id')
   async getCategoryById(@Param('id') id: number) {
